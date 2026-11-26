@@ -36,9 +36,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CT</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="CliffeTech Accounting Solutions logo"
+                className="h-10 w-10 rounded-lg object-contain bg-white p-1"
+              />
               <div className="flex flex-col">
                 <span className="text-xl font-bold leading-tight">CliffeTech</span>
                 <span className="text-xs text-slate-400 leading-tight">Accounting Solutions</span>

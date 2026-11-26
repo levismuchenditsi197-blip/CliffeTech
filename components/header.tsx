@@ -67,9 +67,11 @@ export function Header() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CT</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="CliffeTech Accounting Solutions logo"
+                className="h-10 w-10 rounded-lg object-contain"
+              />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-blue-950 leading-tight">CliffeTech</span>
                 <span className="text-xs text-slate-500 leading-tight">Accounting Solutions</span>
