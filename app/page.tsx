@@ -173,7 +173,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 mb-6 text-sm px-4 py-1">
-                Trusted by 500+ Kenyan Businesses
+                Trusted by 200+ Kenyan Businesses
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Accounting, Tax, Payroll & Zoho Books Solutions for{" "}
