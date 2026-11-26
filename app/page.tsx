@@ -124,8 +124,8 @@ const whyChooseUs = [
 ];
 
 const stats = [
-  { value: "500+", label: "Clients Served" },
-  { value: "15+", label: "Years Experience" },
+  { value: "200+", label: "Clients Served" },
+  { value: "6+", label: "Years Experience" },
   { value: "50+", label: "Zoho Migrations" },
   { value: "99%", label: "Client Satisfaction" },
 ];
