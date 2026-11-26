@@ -13,7 +13,6 @@ import {
   Lightbulb,
   Cloud,
   CheckCircle,
-  Star,
   TrendingUp,
   Shield,
   Clock,
@@ -33,7 +32,6 @@ import {
   Rocket,
   Scale,
   ChevronRight,
-  Quote,
 } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
 
@@ -141,37 +139,6 @@ const industries = [
   { icon: Factory, name: "Manufacturing", href: "/industries/manufacturing" },
   { icon: Rocket, name: "Startups", href: "/industries/startups" },
   { icon: PieChart, name: "Professional Services", href: "/industries/professional-services" },
-];
-
-const testimonials = [
-  {
-    quote: "CliffeTech transformed our accounting processes. Their Zoho Books migration was seamless, and we now have real-time visibility into our finances.",
-    author: "John Mwangi",
-    role: "CEO",
-    company: "TechStart Solutions",
-    rating: 5,
-  },
-  {
-    quote: "Their payroll management service has been exceptional. They handle all our statutory deductions accurately and on time, giving us peace of mind.",
-    author: "Sarah Ochieng",
-    role: "HR Director",
-    company: "GreenLeaf Law Firm",
-    rating: 5,
-  },
-  {
-    quote: "As an NGO, compliance is critical. CliffeTech ensures our tax filings are always accurate and submitted on time.",
-    author: "Peter Kibet",
-    role: "Finance Manager",
-    company: "Hope Foundation Kenya",
-    rating: 5,
-  },
-  {
-    quote: "The financial reports they prepare have helped us make better business decisions. Their advisory services are top-notch.",
-    author: "Mary Wambui",
-    role: "Owner",
-    company: "Savanna Retail Stores",
-    rating: 5,
-  },
 ];
 
 const faqs = [
@@ -385,38 +352,6 @@ export default function HomePage() {
                   <h3 className="font-semibold text-blue-950">{industry.name}</h3>
                 </div>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-blue-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="bg-blue-800 text-blue-200 mb-4">Client Testimonials</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
-              Trusted by businesses across Kenya for reliable accounting services.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-blue-900/50 rounded-xl p-6 border border-blue-800">
-                <Quote className="h-8 w-8 text-orange-400 mb-4" />
-                <p className="text-blue-100 mb-6 leading-relaxed">{testimonial.quote}</p>
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <div>
-                  <p className="font-semibold text-white">{testimonial.author}</p>
-                  <p className="text-sm text-blue-300">{testimonial.role}, {testimonial.company}</p>
-                </div>
-              </div>
             ))}
           </div>
         </div>
