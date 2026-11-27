@@ -1,11 +1,9 @@
 "use server";
 
-import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const resend = new Resend(process.env.RESEND_API_KEY);
+const NOTIFY_EMAIL = process.env.CONTACT_NOTIFICATION_EMAIL || "cliffelikanga@gmail.com";
 
 export interface ContactFormData {
   fullName: string;
@@ -19,20 +17,27 @@ export interface ContactFormData {
 
 export async function submitContactForm(formData: ContactFormData) {
   try {
-    const { error } = await supabase.from("contacts").insert({
-      full_name: formData.fullName,
-      company_name: formData.companyName || null,
-      email: formData.email,
-      phone: formData.phone,
-      service: formData.service || null,
-      business_size: formData.businessSize || null,
-      message: formData.message,
-      status: "new",
+    const { error } = await resend.emails.send({
+      from: "CliffeTech Website <onboarding@resend.dev>",
+      to: NOTIFY_EMAIL,
+      replyTo: formData.email,
+      subject: `New Contact Form Submission - ${formData.fullName}`,
+      text: [
+        `Name: ${formData.fullName}`,
+        `Company: ${formData.companyName || "-"}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone}`,
+        `Service Required: ${formData.service || "-"}`,
+        `Business Size: ${formData.businessSize || "-"}`,
+        "",
+        "Message:",
+        formData.message,
+      ].join("\n"),
     });
 
     if (error) {
-      console.error("Supabase error:", error);
-      return { success: false, error: "Failed to submit form. Please try again." };
+      console.error("Resend error:", error);
+      return { success: false, error: "Failed to send message. Please try again." };
     }
 
     return { success: true };
